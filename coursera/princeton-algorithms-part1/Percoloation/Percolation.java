@@ -62,9 +62,7 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        // another array for storing roots?
-        int topSite = this.uf.find(this.grid.)
-        if
+        // another array for storing roots? - us uf.find to search for percolation
         return false;
     }
 
