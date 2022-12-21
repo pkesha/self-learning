@@ -8,6 +8,7 @@ public class Percolation {
     private int[] size;
     private int lastGridElement;
     private int n;
+    private int openSites;
 
     // creates n-by-n grid, with all sites initially blocked
     public Percolation(int n) {
@@ -25,10 +26,11 @@ public class Percolation {
         this.grid[0] = true;
         this.grid[gridSize - 1] = true;
         this.lastGridElement = gridSize - 2;
+        this.openSites = 0;
     }
 
     private int position(int row, int col) {
-        int position = (row * this.n) + (col + 1);
+        int position = ((row * this.n)) + 1 + (col);
         if(position > this.lastGridElement ) {
             throw new IndexOutOfBoundsException("Grid element is too large at position: " + position);
         } else {
@@ -39,6 +41,7 @@ public class Percolation {
     // opens the site (row, col) if it is not open already
     public void open(int row, int col) {
         this.grid[this.position(row, col)] = true;
+        this.openSites++;
     }
 
 
@@ -48,13 +51,20 @@ public class Percolation {
     }
 
     // is the site (row, col) full?
-    public boolean isFull(int row, int col)
+    public boolean isFull(int row, int col) {
+        return false;
+    }
 
     // returns the number of open sites
-    public int numberOfOpenSites()
+    public int numberOfOpenSites() {
+        return this.openSites;
+    }
 
     // does the system percolate?
     public boolean percolates() {
+        // another array for storing roots?
+        int topSite = this.uf.find(this.grid.)
+        if
         return false;
     }
 
