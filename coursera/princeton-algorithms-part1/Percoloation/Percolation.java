@@ -53,29 +53,30 @@ public class Percolation {
         row -= 1;
 
         this.grid[this.position(row, col)] = true;
+        int currentPosition = this.position(row, col);
+        this.openSites++;
 
         // Need to determine at the edge of the graph
         // If the column is out of bounds (left side) or is not open
         if(!(col - 1 < 0) || !(this.isOpen(row, col - 1))) {
             int left = this.position(row, col - 1);
-            // Link
+            this.uf.union(left, currentPosition);
         }
 
         if(!(col + 1 > this.n) || !(this.isOpen(row, col + 1))) {
             int right = this.position(row, col + 1);
-            // Link
+            this.uf.union(right, currentPosition);
         }
 
         if(!(row + 1 > this.n) || !(this.isOpen(row + 1, col))) {
             int bottom = this.position(row + 1, col);
-            // Link
+            this.uf.union(bottom, currentPosition);
         }
 
         if(!(row - 1 < 0) || !(this.isOpen(row - 1, col))) {
             int top = this.position(row - 1, col);
-            // link
+            this.uf.union(top, currentPosition);
         }
-        this.openSites++;
     }
 
 
